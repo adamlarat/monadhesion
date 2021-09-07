@@ -39,9 +39,9 @@ smtpUsers.php
 ```
 
 ## Sources 
-https://www.developpez.net/forums/d1930668/php/php-base-donnees/script-php-formulaire-recherche-simple-bdd/
-https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913099-transmettez-des-donnees-avec-les-formulaires
-https://www.delftstack.com/fr/howto/mysql/mysql-import-csv/
-https://openclassrooms.com/forum/sujet/remplissage-table-mysql-avec-un-fichier-csv
-https://analyse-innovation-solution.fr/publication/fr/php/comment-envoyer-un-mail-en-php
+* https://www.developpez.net/forums/d1930668/php/php-base-donnees/script-php-formulaire-recherche-simple-bdd/
+* https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql/913099-transmettez-des-donnees-avec-les-formulaires
+* https://www.delftstack.com/fr/howto/mysql/mysql-import-csv/
+* https://openclassrooms.com/forum/sujet/remplissage-table-mysql-avec-un-fichier-csv
+* https://analyse-innovation-solution.fr/publication/fr/php/comment-envoyer-un-mail-en-php
 
