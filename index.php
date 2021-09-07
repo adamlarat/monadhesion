@@ -11,7 +11,7 @@
 </head>
 <body>
   <?php
-    # get connection credential for DB and SMTP server
+    # get connection data for DB and SMTP server
     include('/var/www/dbUsers.php');
     include('/var/www/smtpUsers.php');
     
@@ -46,6 +46,24 @@
     $mail->Subject    = "Tes informations adhérent·e"; //Le sujet du mail
     $mail->WordWrap   = 50;  //Nombre de caracteres pour le retour a la ligne automatique
     $mail->IsHTML(true);     //Préciser qu'il faut utiliser le texte brut
+
+    # Functions to mask email address
+    function mask($str, $first, $last) {
+      $len = strlen($str);
+      $toShow = $first + $last;
+      return substr($str, 0, $len <= $toShow ? 0 : $first).str_repeat("*", $len - ($len <= $toShow ? 0 : $toShow)).substr($str, $len - $last, $len <= $toShow ? 0 : $last);
+    }
+  
+    function mask_email($email) {
+      $mail_parts = explode("@", $email);
+      $domain_parts = explode('.', $mail_parts[1]);
+  
+      $mail_parts[0] = mask($mail_parts[0], 2, 1); // show first 2 letters and last 1 letter
+      $domain_parts[0] = mask($domain_parts[0], 2, 1); // same here
+      $mail_parts[1] = implode('.', $domain_parts);
+  
+      return implode("@", $mail_parts);
+    }
   ?>
 
   <form method='post'>
@@ -111,7 +129,7 @@
                    "<li> Date de Naissance : ".$_POST['DoB'].
                    "</ul>";
             } else {
-              echo "Les informations vous concernant ont été envoyées à votre adresse email"; // l'adresse ",$email;
+              echo "Les informations vous concernant ont été envoyées à l'adresse ",mask_email($email);
             }
             $resultats->closeCursor();
           }
